@@ -1,0 +1,77 @@
+<form #reporterForm="ngForm" class="container mt-5"(ngSubmit)="onSubmit(reporterForm.value)">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="name" 
+        ngModel
+        name = "name"
+        #name = "ngModel"
+        required
+        >
+        <div class="error d-flex justify-content-center" *ngIf="name.touched && name.invalid">
+            <div *ngIf="name.errors?.['required']">Name is required</div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="phoneNumber" 
+        ngModel
+        name = "phoneNumber"
+        #phoneNumber = "ngModel"
+        required
+        maxlength="11"
+        >
+        <div class="error d-flex justify-content-center" *ngIf="phoneNumber.touched && phoneNumber.invalid">
+            <div *ngIf="phoneNumber.errors?.['required']">Phone Number is required</div>
+        </div>
+        <div class="error d-flex justify-content-center" *ngIf="invalidphone">{{msgPhone}}</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input 
+        type="email" 
+        class="form-control" 
+        id="email" 
+        ngModel
+        name = "email"
+        #email = "ngModel"
+        required
+        email
+        >
+        <div class="error d-flex justify-content-center"  *ngIf="email.touched && email.invalid">
+            <div *ngIf="email.errors?.['required']">Email is required</div> 
+            <div *ngIf="email.errors?.['email']">Please Enter A valid email</div> 
+        </div>
+        <div class="error d-flex justify-content-center" *ngIf="invalidEmail">This Email is already in use</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input 
+        type="password" 
+        class="form-control" 
+        id="password" 
+        ngModel
+        name = "password"
+        #password = "ngModel"
+        minlength="6"
+        required
+        >
+        <div class="error d-flex justify-content-center" *ngIf="password.touched && password.invalid">
+            <div *ngIf="password.errors?.['required']"> Password is required</div>
+            <div *ngIf="password.errors?.['minlength']">
+                Password minlength is {{password.errors?.['minlength'].requiredLength}}
+                .... You have entered {{password.errors?.['minlength'].actualLength}}</div> 
+        </div>
+        <div class="error d-flex justify-content-center" *ngIf="invalidpassword">{{msgPassword}}</div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary" [disabled] = "reporterForm.invalid">Submit</button>
+</form>

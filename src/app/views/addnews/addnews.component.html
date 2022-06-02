@@ -1,0 +1,28 @@
+<form class="container mt-5" [formGroup]="newsForm" (ngSubmit)="addnews(newsForm.value)">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="title"
+        formControlName ="title"
+        >
+        <div class="error d-flex justify-content-center" *ngIf= "newValues['title'].touched && newValues['title'].invalid">
+            <div *ngIf="newValues['title'].errors?.['required']">Title is Required</div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="description"
+        formControlName ="description"
+        >
+        <div class="error d-flex justify-content-center" *ngIf= "newValues['description'].touched && newValues['description'].invalid">
+            <div *ngIf="newValues['description'].errors?.['required']">Description is Required</div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="newsForm.invalid">Submit</button>
+</form>

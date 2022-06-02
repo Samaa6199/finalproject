@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let new of news; let i=index">
+        <td>{{new.title}}</td>
+        <td>{{new.description}}</td>
+        <td>
+            <button class="btn btn-sm btn-success" routerLink="/updatenews/{{new._id}}" >Update News</button>
+        </td>
+        <td>
+            <button class="btn btn-sm btn-danger" (click)="deletenews(new._id,i)">Delete</button>
+        </td>
+        </tr>
+    </tbody>
+</table>

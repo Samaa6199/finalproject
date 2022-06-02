@@ -1,0 +1,36 @@
+<form class="container mt-5" #newsForm="ngForm" (ngSubmit)="updatenews(newsForm.value)">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        ngModel
+        #title ="ngModel"
+        required
+        [(ngModel)]="news.title"
+        />
+         <div class=" error d-flex justify-content-center" *ngIf="title.touched && title.invalid">
+          <div *ngIf="title.errors?.['required']"> Title is required </div>
+            </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input
+        type="text"
+        class="form-control"
+        id="description"
+        name="description"
+        ngModel
+        #description="ngModel"
+        required
+        [(ngModel)]="news.description"
+        />
+        <div class=" error d-flex justify-content-center" *ngIf="description.touched && description.invalid">
+          <div *ngIf="description.errors?.['required']"> Description is required</div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="newsForm.invalid">Update News</button>
+</form>
