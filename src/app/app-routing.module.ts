@@ -7,6 +7,7 @@ import { ProfileComponent } from './views/profile/profile.component';
 import { SignupComponent } from './views/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdatenewsComponent } from './views/updatenews/updatenews.component';
+import { EditProfileComponent } from './views/edit-profile/edit-profile.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path :'profile' , component:ProfileComponent},
   {path : 'news' , component:NewsComponent},
   {path : 'addnews' , component:AddnewsComponent},
-  {path : 'updatenews/:id' , component:UpdatenewsComponent}
+  {path : 'updatenews/:id' , component:UpdatenewsComponent},
+  {path: 'editprofile' , component:EditProfileComponent}
 ];
 
 @NgModule({

@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NewsService } from './services/news.service';
 import { UpdatenewsComponent } from './views/updatenews/updatenews.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { EditProfileComponent } from './views/edit-profile/edit-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { FooterComponent } from './layout/footer/footer.component';
     NewsComponent,
     AddnewsComponent,
     UpdatenewsComponent,
-    FooterComponent
+    FooterComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

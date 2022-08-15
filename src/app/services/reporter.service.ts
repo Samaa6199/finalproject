@@ -12,4 +12,12 @@ export class ReporterService {
   getprofile(){
     return this.http.get(this.url + 'profile')
   }
+
+  updateprofile(data : any){
+    return this.http.patch(this.url + 'profile' ,data)
+  }
+
+  reporterimage(data : any){
+    return this.http.post(this.url + 'reporter/avatar' , data)
+  }
 }

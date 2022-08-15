@@ -6,22 +6,28 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link" routerLink = "/">Login</a>
+            <a class="nav-link" routerLink = "/" *ngIf="!islogedin">Login</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" routerLink="/signup">Sign Up</a>
+            <a class="nav-link" routerLink="/signup" *ngIf="!islogedin">Sign Up</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/profile">Profile</a>
+                <a class="nav-link" routerLink="/profile" *ngIf="islogedin">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/news">All News</a>
+                <a class="nav-link" routerLink="/news" *ngIf="islogedin">All News</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/addnews">Add News</a>
+                <a class="nav-link" routerLink="/addnews" *ngIf="islogedin">Add News</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/updatenews/:id">Update News</a>
+                <a class="nav-link" routerLink="/updatenews/:id" *ngIf="islogedin">Update News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/editprofile" *ngIf="islogedin">Edit Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/" (click)="logout()" *ngIf="islogedin">Logout</a>
             </li>
         </ul>
     </div>

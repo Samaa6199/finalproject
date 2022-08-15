@@ -15,4 +15,8 @@ export class AuthService {
   login(data : any){
     return this.http.post(this.url + 'reporter/login' , data)
   }
+
+  logout(){
+    return this.http.delete(this.url + 'logout')
+  }
 }
